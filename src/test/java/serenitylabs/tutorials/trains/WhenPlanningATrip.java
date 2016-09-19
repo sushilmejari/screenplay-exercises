@@ -20,10 +20,10 @@ public class WhenPlanningATrip {
     WebDriver browser;
     Actor tracy;
     @Before
-    public void setTheStage()
-    {
-        tracy=Actor.named("Tracy");
+    public void setTheStage() {
+        tracy = Actor.named("Tracy");
         tracy.can(BrowseTheWeb.with(browser));
+        browser.manage().window().maximize();
 
     }
 
