@@ -12,8 +12,10 @@ import serenitylabs.tutorials.trains.questions.TheOutboundJourneySummary;
 import serenitylabs.tutorials.trains.tasks.ChosenTo;
 import serenitylabs.tutorials.trains.tasks.EnterHerDetails;
 import serenitylabs.tutorials.trains.tasks.ViewTheAvailableTickets;
+import serenitylabs.tutorials.trains.ui.AssistedTeavelPage;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.questions.targets.TheTarget.valueOf;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(SerenityRunner.class)
@@ -28,6 +30,7 @@ public class WhenPlanningATrip {
     public void setTheStage() {
         tracy = Actor.named("Tracy");
         tracy.can(BrowseTheWeb.with(webDriver));
+        webDriver.manage().window().maximize();
     }
 
     @Test
@@ -63,6 +66,10 @@ public class WhenPlanningATrip {
     public void request_assisted_travel() {
         tracy.has(ChosenTo.requestAssistedTravel());
         tracy.attemptsTo(EnterHerDetails.as("Dr", "Tracy", "Traveller"));
+
+        tracy.should(
+                seeThat(valueOf(AssistedTeavelPage.FULL_NAME),is("Tracy Traveller"))
+        );
 
         // TODO
     }
