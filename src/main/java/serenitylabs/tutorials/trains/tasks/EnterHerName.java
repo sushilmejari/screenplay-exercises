@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
-import serenitylabs.tutorials.trains.ui.AssistedTeavelPage;
+import serenitylabs.tutorials.trains.ui.AssistedTravelPage;
 
 /**
  * Created by smejari on 9/20/2016.
@@ -15,7 +15,7 @@ public class EnterHerName implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
             actor.attemptsTo(
-                    SelectFromOptions.byVisibleText("Dr").from(AssistedTeavelPage.TITLE)
+                    SelectFromOptions.byVisibleText("Dr").from(AssistedTravelPage.TITLE)
             );
     }
 
